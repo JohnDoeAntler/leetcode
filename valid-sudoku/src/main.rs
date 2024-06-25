@@ -71,7 +71,7 @@ impl Solution {
     pub fn is_valid_sudoku(board: Vec<Vec<char>>) -> bool {
         // check rows
         for i in board.iter() {
-            let mut map = vec![0; 9];
+            let mut map = [0; 9];
 
             for &value in i.iter() {
                 if value != '.' {
@@ -85,7 +85,7 @@ impl Solution {
         }
 
         for i in 0..9 {
-            let mut map = vec![0; 9];
+            let mut map = [0; 9];
 
             for row in board.iter() {
                 let value = row[i];
@@ -102,14 +102,14 @@ impl Solution {
 
         for i in 0..3 {
             for j in 0..3 {
-                let mut map = vec![0; 9];
+                let mut map = [0; 9];
 
                 for k in 0..3 {
                     for l in 0..3 {
                         let value = board[i * 3 + k][j * 3 + l];
 
                         if value != '.' {
-                            map[(value as u8 - '1' as u8) as usize] +=1;
+                            map[(value as u8 - '1' as u8) as usize] += 1;
                         }
                     }
                 }
